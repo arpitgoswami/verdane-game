@@ -1,6 +1,6 @@
 <img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/2562af68-e6cc-46cb-bc0e-15286692fb45" />
 
-# Verdane
+# Verdane Game
 
 A web‑based plant‑versus‑zombie game built with modern front‑end technologies. Players grow and protect their garden while fending off a horde of zombies, using strategic planting and timing to survive.
 
