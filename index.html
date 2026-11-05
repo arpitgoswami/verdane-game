@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verdane: The Graft Journal</title>
+  <meta name="description" content="Defend Grandmother Wren's garden in Verdane: The Graft Journal — plant, fuse, and hold the lawn against the horde.">
+  <meta name="theme-color" content="#0e1a15">
+  <meta property="og:title" content="Verdane: The Graft Journal">
+  <meta property="og:description" content="Defend Grandmother Wren's garden. Drop one plant onto another to graft a stronger one.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1a15'/%3E%3Cpath d='M32 50V28M32 34c-10 0-16-6-16-16 10 0 16 6 16 16Zm0 0c10 0 16-6 16-16-10 0-16 6-16 16Z' fill='%238fd16a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>tailwind.config={theme:{extend:{colors:{ink:'#0e1a15',leaf:'#8fd16a',sun:'#ffc94a',bloom:'#e8708a',moss:{200:'#b9d3bf',600:'#3f7a52',800:'#1b3326'}},fontFamily:{sans:['Figtree','system-ui','sans-serif'],display:['Bricolage Grotesque','Figtree','system-ui','sans-serif']}}}}</script>
+</head>
+<body class="bg-ink text-moss-200 min-h-screen font-sans antialiased selection:bg-leaf selection:text-ink">
+  <main id="menu" class="max-w-5xl mx-auto px-4 sm:px-5 py-6 sm:py-10">
+
+    <section class="relative overflow-hidden rounded-3xl border border-moss-600/60 bg-gradient-to-br from-moss-800 via-[#173b2a] to-ink p-6 sm:p-10 shadow-2xl shadow-black/40">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.14]" aria-hidden="true" style="background-image:radial-gradient(#b9d3bf 1px, transparent 1px);background-size:18px 18px"></div>
+      <img src="assets/sprites/plants/sunsprout.png" alt="" aria-hidden="true" class="pointer-events-none absolute right-6 top-5 hidden h-24 w-24 [image-rendering:pixelated] opacity-90 drop-shadow-[0_10px_0_rgba(0,0,0,0.35)] md:block lg:h-32 lg:w-32">
+      <img src="assets/sprites/plants/peashooter.png" alt="" aria-hidden="true" class="pointer-events-none absolute right-36 top-32 hidden h-16 w-16 [image-rendering:pixelated] drop-shadow-[0_8px_0_rgba(0,0,0,0.35)] lg:block">
+      <img src="assets/sprites/plants/barkwall.png" alt="" aria-hidden="true" class="pointer-events-none absolute right-8 top-48 hidden h-20 w-20 [image-rendering:pixelated] opacity-95 drop-shadow-[0_8px_0_rgba(0,0,0,0.35)] lg:block">
+
+      <div class="relative max-w-2xl">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-leaf/80">A garden-defense fable</p>
+        <h1 class="mt-2 font-display text-[clamp(3rem,10vw,6rem)] leading-[0.9] tracking-[-0.03em] text-moss-200">Verdane</h1>
+        <p class="mt-1 font-display text-xl sm:text-2xl tracking-[-0.01em] text-sun">The Graft Journal</p>
+        <p class="mt-4 max-w-lg text-sm sm:text-base text-moss-200/85">Grandmother Wren's garden is the last green thing on the lane. Plant its defenders, graft one onto another, and hold the rows until the horde gives up.</p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-2.5">
+          <button id="chooseMission" type="button" class="inline-flex min-h-11 items-center gap-2 rounded-xl bg-leaf px-4 py-2.5 font-semibold text-ink transition-colors hover:bg-[#a4e07f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">
+            Choose a mission
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button id="journalBtn" type="button" class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-moss-600 bg-ink/40 px-4 py-2.5 text-sm font-semibold text-moss-200 transition-colors hover:border-leaf hover:text-leaf focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4V5.5Z" stroke-linejoin="round"/><path d="M4 16v3.5A1.5 1.5 0 0 0 5.5 21H18" stroke-linecap="round"/><path d="M8 7h8M8 10.5h5" stroke-linecap="round"/></svg>
+            Graft Journal
+          </button>
+          <button id="muteMenu" type="button" data-mute class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-moss-600 bg-ink/40 text-moss-200 transition-colors hover:border-leaf hover:text-leaf focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Mute sound" aria-pressed="false">
+            <svg class="mute-on" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke-linecap="round"/></svg>
+            <svg class="mute-off hidden" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" stroke-linejoin="round"/><path d="m16.5 9.5 5 5m0-5-5 5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <ol class="relative mt-8 grid gap-2 sm:grid-cols-3" aria-label="How to play">
+        <li class="rounded-2xl border border-moss-600/40 bg-ink/35 px-4 py-3">
+          <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-leaf">01 · Plant</span>
+          <p class="mt-1 text-sm text-moss-200/80">Pick a seed packet, then tap a lawn tile. Sunsprouts pay for everything else.</p>
+        </li>
+        <li class="rounded-2xl border border-moss-600/40 bg-ink/35 px-4 py-3">
+          <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-sun">02 · Graft</span>
+          <p class="mt-1 text-sm text-moss-200/80">Drop one plant onto another to fuse them into a stronger graft.</p>
+        </li>
+        <li class="rounded-2xl border border-moss-600/40 bg-ink/35 px-4 py-3">
+          <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-bloom">03 · Defend</span>
+          <p class="mt-1 text-sm text-moss-200/80">Hold every row. Mowers are your last line — each one only saves you once.</p>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-moss-600/30 pt-4">
+      <p class="text-xs text-moss-200/50">Arrow keys and Enter play the whole game. Every run is seeded.</p>
+      <button id="reset" type="button" class="min-h-10 text-sm underline decoration-moss-600 underline-offset-4 text-moss-200/70 transition-colors hover:text-bloom focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">Reset progress</button>
+    </footer>
+  </main>
+
+  <!-- Dedicated Missions Page — distinct full-screen AAA layout, separate from main menu -->
+  <section id="missions-page" class="fixed inset-0 z-20 bg-ink overflow-hidden hidden">
+    <div class="absolute inset-0 opacity-[0.10]" aria-hidden="true" style="background-image:radial-gradient(#b9d3bf 1px, transparent 1px);background-size:24px 24px"></div>
+
+    <!-- Header -->
+    <div class="absolute top-0 left-0 right-0 z-30 p-6 sm:p-8 flex flex-wrap items-center justify-between gap-3 pointer-events-auto">
+      <button id="backToMenu" type="button" class="inline-flex items-center gap-2 rounded-xl border border-moss-600/60 bg-ink/60 px-4 py-2 text-sm font-semibold text-moss-200 transition-colors hover:border-leaf hover:text-leaf focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m19 12-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to menu
+      </button>
+      <div class="flex items-baseline gap-2">
+        <span class="text-[11px] font-bold uppercase tracking-[0.28em] text-leaf/80">Mission select</span>
+        <h2 class="font-display text-[clamp(2rem,6vw,3.5rem)] leading-[0.95] tracking-[-0.02em] text-moss-200">The Gardens</h2>
+      </div>
+      <button id="journalBtnMissions" type="button" class="inline-flex min-h-10 items-center gap-2 rounded-xl border border-moss-600/70 px-3 py-2 text-sm font-semibold text-moss-200 transition-colors hover:border-leaf hover:text-leaf focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4V5.5Z" stroke-linejoin="round"/><path d="M4 16v3.5A1.5 1.5 0 0 0 5.5 21H18" stroke-linecap="round"/></svg>
+        Journal
+      </button>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="absolute top-24 left-6 right-6 z-30 flex items-center gap-4 pointer-events-auto">
+      <div class="flex-1 h-3 bg-ink/60 rounded-full overflow-hidden border border-moss-600/40">
+        <div id="progressFill" class="h-full bg-gradient-to-r from-leaf to-sun transition-[width] duration-500" style="width:0%"></div>
+      </div>
+      <span id="progressText" class="text-xs font-semibold text-moss-200/70 min-w-[14rem] text-right">0 of 9 gardens · 0 of 27 stars</span>
+    </div>
+
+    <!-- Mission cards grid -->
+    <div id="missions-grid" class="relative z-30 mt-36 mx-auto max-w-6xl px-6 sm:px-8 py-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Missions"></div>
+  </section>
+
+  <section id="game" class="fixed inset-0 z-10 bg-ink overflow-hidden hidden">
+    <canvas id="cv" width="1920" height="1080" tabindex="0" role="application" class="absolute inset-0 w-full h-full block touch-none cursor-crosshair focus-visible:outline-none" aria-label="Garden lawn. Use arrow keys to move the tile cursor, Enter or Space to plant. With no seed chosen, Enter collects a nearby sun. 1-9 chooses a seed, S is the shovel, A toggles auto-collect, J opens the journal, and P pauses." aria-describedby="controls"></canvas>
+    <div id="note" class="pointer-events-none absolute inset-x-0 top-1/4 -translate-y-1/4 text-center font-display text-lg tracking-[-0.01em] text-sun" role="status" aria-live="polite"></div>
+    <div id="paused" class="pointer-events-none absolute inset-0 hidden grid place-items-center bg-black/55 backdrop-blur-[1px] font-display text-4xl tracking-[-0.01em] text-leaf" role="status" aria-live="polite">Paused</div>
+
+    <div class="absolute top-0 left-0 right-0 z-20 p-6 sm:p-8 flex flex-wrap items-center justify-between gap-3 pointer-events-auto">
+      <div id="sunPulse" class="flex items-center gap-2 rounded-xl border border-moss-600/60 bg-ink/60 px-3 py-2 sm:px-4 sm:py-2.5 transition-transform duration-150 ease-out motion-reduce:transition-none">
+        <canvas id="sunIcon" width="16" height="16" class="h-6 w-6 sm:h-8 sm:w-8 [image-rendering:pixelated]" aria-hidden="true"></canvas>
+        <span class="text-[9px] sm:text-xs font-bold uppercase tracking-[0.2em] text-moss-200/55">Sun</span>
+        <span id="sun" class="min-w-[2.5rem] font-display text-2xl sm:text-3xl leading-none tabular-nums text-sun">0</span>
+      </div>
+
+      <div class="min-w-[9rem] flex-1 sm:flex-none sm:min-w-[11rem]">
+        <div class="flex items-baseline justify-between gap-2 text-xs sm:text-sm">
+          <span id="wave" class="font-semibold tabular-nums text-moss-200">Wave 1/5</span>
+          <span id="wavenext" class="tabular-nums text-moss-200/55"></span>
+        </div>
+        <div id="wavebar" class="mt-1.5 sm:mt-2 h-2 sm:h-2.5 overflow-hidden rounded-full bg-ink/70" role="progressbar" aria-labelledby="wave" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="wavefill" class="h-full w-0 rounded-full bg-gradient-to-r from-leaf to-sun transition-[width] duration-300 motion-reduce:transition-none"></div>
+        </div>
+      </div>
+
+      <div class="ml-auto flex flex-wrap items-center justify-end gap-1.5 sm:gap-2">
+        <button id="shovel" type="button" class="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg border border-moss-600/60 bg-ink/40 text-moss-200 sm:text-sm transition-colors hover:border-leaf hover:text-leaf disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Shovel: remove a plant (S)" aria-pressed="false" title="Shovel (S)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 4.5 19.5 10M16.5 7 8 15.5M8 15.5 5 20l4.5-3L18 8.5M8 15.5 4.5 12l5-5L13 10.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button id="autosun" type="button" class="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg border border-moss-600/60 bg-ink/40 text-moss-200 sm:text-sm transition-colors hover:border-leaf hover:text-leaf disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Auto-collect sun (A)" aria-pressed="true" title="Auto-collect sun (A)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button id="speed" type="button" class="inline-flex h-10 sm:h-11 min-w-10 sm:min-w-11 items-center justify-center rounded-lg border border-moss-600/60 bg-ink/40 px-2 text-xs sm:text-sm font-bold tabular-nums text-moss-200 transition-colors hover:border-leaf hover:text-leaf disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Game speed x1">x1</button>
+        <button id="pause" type="button" class="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg border border-moss-600/60 bg-ink/40 text-moss-200 sm:text-sm transition-colors hover:border-leaf hover:text-leaf disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Pause game (P)" aria-pressed="false" title="Pause (P)">
+          <svg class="pause-play hidden" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+          <svg class="pause-stop" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg>
+        </button>
+        <button id="journalBtnGame" type="button" class="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg border border-moss-600/60 bg-ink/40 text-moss-200 sm:text-sm transition-colors hover:border-leaf hover:text-leaf disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Open Graft Journal (J)" title="Graft Journal (J)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4V5.5Z" stroke-linejoin="round"/><path d="M4 16v3.5A1.5 1.5 0 0 0 5.5 21H18" stroke-linecap="round"/></svg>
+        </button>
+        <button id="mute" type="button" data-mute class="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg border border-moss-600/60 bg-ink/40 text-moss-200 sm:text-sm transition-colors hover:border-leaf hover:text-leaf disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Mute sound" aria-pressed="false" title="Mute sound">
+          <svg class="mute-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke-linecap="round"/></svg>
+          <svg class="mute-off hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" stroke-linejoin="round"/><path d="m16.5 9.5 5 5m0-5-5 5" stroke-linecap="round"/></svg>
+        </button>
+        <button id="quit" type="button" class="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg border border-moss-600/60 bg-ink/40 text-moss-200 sm:text-sm transition-colors hover:border-bloom hover:text-bloom disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Back to menu" title="Back to menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m3 11 9-8 9 8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.5V20h5v-6h3v6h5V9.5" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="packets" class="absolute top-14 left-1/2 -translate-x-1/2 z-20 flex gap-3 overflow-x-auto pb-3 [scrollbar-width:none] pointer-events-auto sm:top-16" aria-label="Seed packets"></div>
+
+    <div class="absolute bottom-6 left-6 right-6 z-20 pointer-events-auto sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 gap-2">
+      <p class="text-xs sm:text-sm"><span id="title" class="font-display tracking-[-0.01em] text-leaf"></span><span class="text-moss-200/45"> — </span><span id="tip" class="text-moss-200/85"></span></p>
+      <p id="controls" class="text-[10px] sm:text-xs leading-relaxed text-moss-200/55">Tap a seed then a tile. Tap two plants in a row to fuse. Right-click or Esc cancels. Keyboard: arrows move, Enter plants, 1-9 picks a seed, S shovel, A auto-sun, J journal, P pause.</p>
+    </div>
+  </section>
+
+  <div id="journal" class="fixed inset-0 z-50 hidden grid place-items-center bg-black/80 p-2 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="journalTitle">
+    <div class="flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-moss-600 bg-moss-800 shadow-2xl shadow-black/60">
+      <div class="flex items-start justify-between gap-3 border-b border-moss-600/50 px-4 py-4 sm:px-6">
+        <div>
+          <h2 id="journalTitle" class="font-display text-2xl tracking-[-0.01em] text-moss-200">The Graft Journal</h2>
+          <p class="mt-0.5 text-xs text-moss-200/60">Every plant Wren ever grew, and the grafts she worked out.</p>
+        </div>
+        <button id="journalClose" type="button" class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-moss-600/70 text-moss-200 transition-colors hover:border-bloom hover:text-bloom focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none" aria-label="Close journal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div id="journalBody" class="min-h-0 overflow-y-auto px-4 py-5 sm:px-6"></div>
+    </div>
+  </div>
+
+  <div id="modal" class="fixed inset-0 z-40 hidden grid place-items-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-labelledby="mt" aria-describedby="mb">
+    <div class="w-full max-w-sm rounded-3xl border border-moss-600 bg-moss-800 p-5 text-center shadow-2xl shadow-black/60 sm:p-6">
+      <div class="mx-auto mb-3 h-1.5 w-14 rounded-full bg-leaf/70" aria-hidden="true"></div>
+      <h2 id="mt" class="font-display text-2xl tracking-[-0.01em] text-leaf"></h2>
+      <div id="mb" class="mt-3 text-sm text-moss-200/85"></div>
+      <div class="mt-5 flex flex-wrap justify-center gap-2">
+        <button id="nextBtn" type="button" class="min-h-11 rounded-xl bg-leaf px-4 py-2 font-semibold text-ink transition-colors hover:bg-[#a4e07f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">Next mission</button>
+        <button id="again" type="button" class="min-h-11 rounded-xl border border-moss-600 px-4 py-2 font-semibold transition-colors hover:border-leaf hover:text-leaf focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">Play again</button>
+        <button id="journalResult" type="button" class="min-h-11 rounded-xl border border-moss-600 px-4 py-2 font-semibold transition-colors hover:border-sun hover:text-sun focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">Journal</button>
+        <button id="menuBtn" type="button" class="min-h-11 rounded-xl border border-moss-600 px-4 py-2 font-semibold transition-colors hover:border-leaf hover:text-leaf focus-visible:outline focus-visible:outline-2 focus-visible:outline-sun focus-visible:outline-offset-2 motion-reduce:transition-none">Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <noscript><p class="mx-auto max-w-3xl px-5 pb-8">Verdane needs JavaScript to run. Please enable it and reload the page.</p></noscript>
+  <script src="js/data.js"></script><script src="js/sprite-manifest.js"></script><script src="js/sprites.js"></script><script src="js/art.js"></script><script src="js/game.js"></script><script src="js/fx.js"></script><script src="js/save.js"></script><script src="js/audio.js"></script><script src="js/main.js"></script>
+</body>
+</html>
