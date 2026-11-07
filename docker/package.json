@@ -1,0 +1,38 @@
+{
+  "name": "arpitgoswami-portfolio",
+  "version": "1.0.0",
+  "description": "Awwwards-quality personal portfolio for Arpit Goswami",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/generate-sitemap.js",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.html --fix",
+    "format": "prettier --write .",
+    "validate": "html-validate index.html",
+    "check:css": "stylelint styles.css",
+    "check:all": "npm run lint && npm run check:css && npm run validate",
+    "deploy": "npm run build && npx vercel --prod ./dist",
+    "sitemap": "node scripts/generate-sitemap.js"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0",
+    "html-validate": "^8.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "@studio-freight/lenis": "^1.0.42"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

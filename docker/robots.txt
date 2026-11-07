@@ -1,0 +1,9 @@
+# Robots.txt for Arpit Goswami Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://arpitgoswami.com/sitemap.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 10

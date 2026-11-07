@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#f8f9fa"/>
+  <text x="600" y="280" font-family="Inter, system-ui" font-size="64" font-weight="700" fill="#1a1a1a" text-anchor="middle">Arpit Goswami</text>
+  <text x="600" y="360" font-family="Inter, system-ui" font-size="28" font-weight="400" fill="#6b7280" text-anchor="middle">Full-stack Developer & Designer</text>
+  <rect x="500" y="420" width="200" height="4" rx="2" fill="#2563eb"/>
+  <text x="600" y="520" font-family="Inter, system-ui" font-size="20" font-weight="500" fill="#2563eb" text-anchor="middle">arpitgoswami.com</text>
+</svg>

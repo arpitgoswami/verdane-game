@@ -2,16 +2,25 @@
  * Game.Renderer - Canvas drawing logic and particle system
  */
 import { ParticlePool } from './ParticlePool.js';
+import { CONFIG, VASE_TYPES } from './Types.js';
 
 /**
  * Game.Renderer - Canvas drawing and particle system
  */
 export class GameRenderer {
+  /**
+   * @param {GameSimulation} simulation
+   * @param {HTMLCanvasElement} canvas
+   */
   constructor(simulation, canvas) {
+    /** @type {GameSimulation} */
     this.simulation = simulation;
+    /** @type {HTMLCanvasElement} */
     this.canvas = canvas;
+    /** @type {CanvasRenderingContext2D} */
     this.ctx = canvas.getContext('2d');
-    this.particles = new ParticlePool(200);
+    /** @type {ParticlePool} */
+    this.particles = new ParticlePool(CONFIG.PARTICLE_CAPACITY);
     this.visualT = 0;
     this.resize();
   }
@@ -38,6 +47,7 @@ export class GameRenderer {
 
   /**
    * Draw the game scene
+   * @param {number} dt - Delta time in seconds
    */
   draw(dt = 1/60) {
     this.visualT += dt;
@@ -64,6 +74,7 @@ export class GameRenderer {
    * Draw vases
    */
   _drawVases() {
+    /** @type {Vase[]} */
     const vases = this.simulation.getVases();
     for (const vase of vases) {
       if (vase.active && !vase.collected) {
@@ -109,6 +120,7 @@ export class GameRenderer {
    * Draw plants
    */
   _drawPlants() {
+    /** @type {Plant[]} */
     const plants = this.simulation.getActivePlants();
     for (const plant of plants) {
       this.ctx.beginPath();
@@ -128,6 +140,7 @@ export class GameRenderer {
    * Draw enemies
    */
   _drawEnemies() {
+    /** @type {Enemy[]} */
     const enemies = this.simulation.getActiveEnemies();
     for (const enemy of enemies) {
       // Draw enemy body
@@ -194,6 +207,10 @@ export class GameRenderer {
 
   /**
    * Add a particle to the scene
+   * @param {number} x
+   * @param {number} y
+   * @param {string} color
+   * @param {number} size
    */
   addParticle(x, y, color, size) {
     this.particles.emit(x, y, color, 1, 60, 1, size, 140);
@@ -201,6 +218,7 @@ export class GameRenderer {
 
   /**
    * Emit particles for vase break
+   * @param {Vase} vase
    */
   emitVaseBreak(vase) {
     const colors = {
